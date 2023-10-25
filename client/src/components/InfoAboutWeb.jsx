@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {Button} from "react-bootstrap";
 import validator from "validator";
+import Favicon from "./Head/HeadPart";
 
 function InfoAboutWeb() {
     const [error, setError] = useState(false);
     const [info, setInfo] = useState({
         title: "",
-        lastName: "",
+        file: "",
         age: "",
         email: ""
     });
@@ -26,10 +27,7 @@ function InfoAboutWeb() {
             validator.isEmpty(info.title)
         ) {
             setError(true);
-        }else if(
-            validator.isEmpty(info.title)
-        ){}
-        else {
+        } else {
             document.title = info.title;
             nextStep();
         }
@@ -86,17 +84,20 @@ function InfoAboutWeb() {
         case 2:
             return (
                 <>
-                    second step
-                    <Button variant="primary" type="submit"
-                            onClick={prevStep}
-                    >
-                        Previous
-                    </Button>
-                    <Button variant="primary" type="submit"
-                            onClick={nextStep}
-                    >
-                        Continue
-                    </Button>
+                    <form onSubmit={submitFormData}>
+                        <div className="input-container">
+                            <Favicon/>
+                            {/*{renderErrorMessage("title")}*/}
+                        </div>
+                        <Button variant="primary" type="submit"
+                                onClick={prevStep}
+                        >
+                            Previous
+                        </Button>
+                        <Button variant="primary" type="submit">
+                            Continue
+                        </Button>
+                    </form>
                 </>
             );
         case 3:
