@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import "../custom style/login.css";
 import InfoAboutWeb from "./InfoAboutWeb";
+// import Cookies from 'js-cookie';
 
 function Login() {
     // User Login info
@@ -35,6 +36,20 @@ function Login() {
                 setErrorMessages({name: "pass", message: errors.pass});
             } else {
                 setIsSubmitted(true);
+                // // Set the cookies after the user logs in
+                // Cookies.set('username', uname,
+                //     {
+                //         expires: 30,
+                //         sameSite: 'None',
+                //         secure: true
+                //     }); // Set a cookie named "username" with the user's username for 30 days
+                // Cookies.set('passWord', pass,
+                //     {
+                //         expires: 30,
+                //         sameSite: 'None',
+                //         secure: true
+                //     });     // Set a cookie named "userId" with the user's ID for 30 days
+
             }
         } else {
             // Username not found
@@ -53,8 +68,8 @@ function Login() {
                 <div className="login-form">
                     <div className="title">Sign In</div>
                     {isSubmitted ?
-                        <InfoAboutWeb />
-                         :
+                        <InfoAboutWeb/>
+                        :
                         <div className="form">
                             <form onSubmit={handleSubmit}>
                                 <div className="input-container">

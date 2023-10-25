@@ -10,7 +10,8 @@ import {UploadButton} from "@bytescale/upload-widget-react";
 function Favicon() {
     const options = {
         apiKey: "public_W142iHiDs9CJ7cNwZqk9nYJvUqkj", // This is your API key.
-        maxFileCount: 1
+        maxFileCount: 1,
+        showFinishButton: true,
     };
     const [favicon, setFavicon] = useState(null);
 
@@ -20,10 +21,10 @@ function Favicon() {
     // };
 
     const onCompleteCallback = (files) => {
-        const uploadedFavicon = (files.map((file) => file.fileUrl).join("\n"));
+        const uploadedFavicon = (files.map((file) => file).join("\n"));
         // Additional code to handle the completion of the upload3
         setFavicon(uploadedFavicon);
-        console.log('fav', uploadedFavicon);
+        console.log('fav', files);
     };
 
     useEffect(() => {
