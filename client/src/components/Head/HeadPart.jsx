@@ -21,10 +21,10 @@ function Favicon() {
     // };
 
     const onCompleteCallback = (files) => {
-        const uploadedFavicon = (files.map((file) => file).join("\n"));
+        const uploadedFavicon = (files.map((file) => file.fileUrl).join("\n"));
         // Additional code to handle the completion of the upload3
         setFavicon(uploadedFavicon);
-        console.log('fav', files);
+        // console.log('fav', files);
     };
 
     useEffect(() => {

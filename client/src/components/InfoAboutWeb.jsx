@@ -37,11 +37,13 @@ function InfoAboutWeb() {
     // function for going to next step by increasing step state by 1
     const nextStep = () => {
         setStep(step + 1);
+        console.log("nextStep called", step);
     };
 
     // function for going to previous step by decreasing step state by 1
     const prevStep = () => {
         setStep(step - 1);
+        console.log("prevStep called", step);
     };
 
     // handling form input data by taking onchange value and updating our previous form data state
@@ -61,52 +63,53 @@ function InfoAboutWeb() {
     switch (step) {
         case 1:
             return (
+                <>
 
-                <form onSubmit={submitFormData}>
-                    <div className="input-container">
-                        <label>Title</label>
-                        <input
-                            type="text"
-                            name="Title"
-                            value={info.title}
-                            onChange={handleInputData("title")}
-                            required
-                        />
+                    <form>
+                        <div className="input-container">
+                            <label>Title</label>
+                            <input
+                                type="text"
+                                name="Title"
+                                value={info.title}
+                                onChange={handleInputData("title")}
+                                required
+                            />
 
-                        {/*{renderErrorMessage("title")}*/}
-                    </div>
-                    <Button variant="primary" type="submit">
+                            {/*{renderErrorMessage("title")}*/}
+                        </div>
+                    </form>
+                    <Button variant="primary" type="submit" onClick={submitFormData}>
                         Continue
                     </Button>
-                </form>
+                </>
 
             );
         case 2:
             return (
                 <>
-                    <form onSubmit={submitFormData}>
+                    <form>
                         <div className="input-container">
                             <Favicon/>
                             {/*{renderErrorMessage("title")}*/}
                         </div>
-                        <Button variant="primary" type="submit"
-                                onClick={prevStep}
-                        >
-                            Previous
-                        </Button>
-                        <Button variant="primary" type="submit">
-                            Continue
-                        </Button>
                     </form>
+                    <Button variant="primary" type="submit"
+                            onClick={prevStep}
+                    >
+                        Previous
+                    </Button>
+                    <Button variant="primary" type="submit" onClick={submitFormData}>
+                        Continue
+                    </Button>
                 </>
             );
         case 3:
             return (
                 <>
-                    final step
+
                     <Button variant="primary" type="submit"
-                            onClick={submitFormData}
-                    >
+                            onClick={submitFormData}>
                         Submit
                     </Button>
                 </>
