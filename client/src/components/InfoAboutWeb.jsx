@@ -107,7 +107,11 @@ function InfoAboutWeb() {
         case 3:
             return (
                 <>
-
+                    <Button variant="primary" type="submit"
+                            onClick={prevStep}
+                    >
+                        Previous
+                    </Button>
                     <Button variant="primary" type="submit"
                             onClick={submitFormData}>
                         Submit
