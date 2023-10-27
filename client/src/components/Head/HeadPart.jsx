@@ -14,33 +14,17 @@ function Favicon() {
         showFinishButton: true,
     };
     const [favicon, setFavicon] = useState(null);
-    const [uploadError, setUploadError] = useState(null);
 
     // const handleFaviconUpload = (e) => {
     //     const uploadedFavicon = e.target.files[0];
     //     setFavicon(uploadedFavicon);
     // };
-    const isValidImageType = (file) => {
-        if (file && file.name) {
-            const allowedExtensions = [".ico", ".png", ".jpg", ".jpeg", ".svg"];
-            const extension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
-            return allowedExtensions.includes(extension);
-        }
-        return false;
-    };
-
-
 
     const onCompleteCallback = (files) => {
-        const uploadedFile = files[0];
-        if (uploadedFile && isValidImageType(uploadedFile)) {
-            const uploadedFavicon = uploadedFile.fileUrl;
-            setFavicon(uploadedFavicon);
-            setUploadError(null);
-        } else {
-            setUploadError("Invalid image format. Please upload a valid image.");
-            setFavicon(null);
-        }
+        const uploadedFavicon = (files.map((file) => file.fileUrl).join("\n"));
+        // Additional code to handle the completion of the upload3
+        setFavicon(uploadedFavicon);
+        // console.log('fav', files);
     };
 
     useEffect(() => {
@@ -80,7 +64,6 @@ function Favicon() {
                         </button>
                     }
                 </UploadButton>
-                {uploadError && <div className="error">{uploadError}</div>}
             </div>
         </>
     );
