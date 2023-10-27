@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button} from "react-bootstrap";
 import validator from "validator";
 import Favicon from "./Head/HeadPart";
+import Modules from "./Head/AddYourModules";
 
 function InfoAboutWeb() {
     const [error, setError] = useState(false);
@@ -76,7 +77,9 @@ function InfoAboutWeb() {
                                 required
                             />
 
-                            {/*{renderErrorMessage("title")}*/}
+                            {error && (
+                                <div className="error">{errors.title}</div>
+                            )}
                         </div>
                     </form>
                     <Button variant="primary" type="submit" onClick={submitFormData}>
@@ -90,6 +93,7 @@ function InfoAboutWeb() {
                 <>
                     <form>
                         <div className="input-container">
+
                             <Favicon/>
                             {/*{renderErrorMessage("title")}*/}
                         </div>
@@ -107,6 +111,14 @@ function InfoAboutWeb() {
         case 3:
             return (
                 <>
+                    <form>
+                        <div className="input-container">
+                            <label>Add Your Modules</label>
+                            <Modules/>
+                            {/*{renderErrorMessage("title")}*/}
+                        </div>
+                    </form>
+
                     <Button variant="primary" type="submit"
                             onClick={prevStep}
                     >
