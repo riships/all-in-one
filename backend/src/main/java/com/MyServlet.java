@@ -19,19 +19,19 @@ public class MyServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        boolean isAuthenticated = authenticateUser(username, password);
-        if (isAuthenticated) {
-            // Store user information in a session
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-
-            // Send a success response
-            response.setStatus(HttpServletResponse.SC_OK);
-        }
-        else {
-            // Send an error response
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        }
+//        boolean isAuthenticated = authenticateUser(username, password);
+//        if (isAuthenticated) {
+//            // Store user information in a session
+//            HttpSession session = request.getSession();
+//            session.setAttribute("username", username);
+//
+//            // Send a success response
+//            response.setStatus(HttpServletResponse.SC_OK);
+//        }
+//        else {
+//            // Send an error response
+//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//        }
     }
 }
 
