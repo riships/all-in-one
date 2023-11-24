@@ -1,38 +1,31 @@
-const express = require('express');
-const app = express();
+// const http = require('http');
 
-const sessionTimeout = 15 * 60 * 1000; // 15 minutes timeout
-const activeUsers = {}; // Map to store last activity timestamps
+// http.createServer((req, res) => {
+//     res.writeHead(200, { 'Content-Type': 'application\json' });
+//     res.write(JSON.stringify({ name: 'rishi', email: 'rishi.soni@mail.com' }));
+//     res.end();
+// }).listen(5000);
 
-app.use((req, res, next) => {
-    const userId = req.session.userId; // Assume you have a user ID in the session
-    console.log(userId);
 
-    if (userId) {
-        activeUsers[userId] = Date.now(); // Update the last activity timestamp
-    }
+// add file and remove
+// const fs = require('fs');
 
-    next();
-});
 
-app.use((req, res, next) => {
-    const userId = req.session.userId;
+// let input = process.argv;
 
-    if (userId && activeUsers[userId]) {
-        const elapsedTime = Date.now() - activeUsers[userId];
+// if (input[2] == 'add') {
+//     fs.writeFileSync(input[3], input[4]);
+// } else if (input[2] == 'remove') {
+//     fs.unlinkSync(input[3]);
+// } else {
+//     console.log('This is a ivalid input');
+// }
+// console.log(__dirname);
 
-        if (elapsedTime > sessionTimeout) {
-            // Session expired, force logout
-            req.session.destroy((err) => {
-                if (err) {
-                    console.error('Error destroying session:', err);
-                }
-                res.redirect('/login');
-            });
-        } else {
-            next();
-        }
-    } else {
-        next();
-    }
-});
+const path = require('path');
+console.log(path);
+
+
+
+
+
