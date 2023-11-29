@@ -22,10 +22,10 @@
 // }
 // console.log(__dirname);
 
-const path = require('path');
-const fs = require('fs');
-const dirPath = path.join(__dirname, 'crud');
-const filePath = `${dirPath}/apple.txt`
+// const path = require('path');
+// const fs = require('fs');
+// const dirPath = path.join(__dirname, 'crud');
+// const filePath = `${dirPath}/apple.txt`
 
 // this is the func for add and write the content in file
 // fs.writeFileSync(filePath, 'This is sample for creating files using fs');
