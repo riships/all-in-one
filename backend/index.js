@@ -1,32 +1,31 @@
 const express = require('express');
-const path = require('path');
-
 const app = express();
-const myPublicFiles = path.join(__dirname, '/public')
 
-app.set('vew engine', 'ejs');
+const reqFilter = (req, res, next) => {
+    if (!req.query.age) {
+        res.send('Please provide your age');
+    } else if (req.query.age < 18) {
+        res.send('You are not authorize to access this page')
+    }
+    else {
+        next();
+    }
+};
+
+// app.use(reqFilter);
+
 
 app.get('/', (req, res) => {
-    res.sendFile(`${myPublicFiles}/index.html`)
+    res.send('Welcome to the world of node js home');
 });
 
-
-app.get('/about', (req, res) => {
-    res.sendFile(`${myPublicFiles}/about.html`)
+app.get('/user', reqFilter, (req, res) => {
+    res.send('Welcome to the world of node js user');
 });
 
-
-app.get('/contact', (req, res) => {
-    res.sendFile(`${myPublicFiles}/contact.html`)
-});
+let port = 5000;
+app.listen(port);
 
 
-app.get('*', (req, res) => {
-    res.sendFile(`${myPublicFiles}/error.html`)
-});
+console.log(`server is running on http://localhost:${port}`);
 
-
-
-let port = app.listen(5000);
-
-console.log(`server is running on http://localhost:5000`);

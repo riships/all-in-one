@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            /* Blue background color */
             margin: 0;
             padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            /* background-color: #444; */
         }
 
         .container {
-            /* background-color: #ecf0f1; */
-            /* background-color: #bbd6f5; */
             background: linear-gradient(to top right, #444, #bbd6f5);
             ;
-            /* Light gray container background */
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
             padding: 20px;
@@ -33,10 +34,8 @@
         }
 
         form {
-            /* White background for form */
             padding: 20px;
             border-radius: 5px;
-            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
             text-align: center;
         }
 
@@ -44,7 +43,7 @@
             display: block;
             margin-bottom: 8px;
             color: #2c3e50;
-            /* Dark blue text color */
+            float: left;
         }
 
         input {
@@ -53,13 +52,11 @@
             margin-bottom: 16px;
             box-sizing: border-box;
             border: 1px solid #3498db;
-            /* Blue border for input fields */
             border-radius: 5px;
         }
 
         button {
             background-color: #3498db;
-            /* Blue background color for button */
             color: white;
             padding: 10px;
             border: none;
@@ -70,8 +67,6 @@
 
         button:hover {
             background-color: #2980b9;
-            /* transition: all 2.ms; */
-            /* Darker blue on hover */
         }
     </style>
 </head>
