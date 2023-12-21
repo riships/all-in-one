@@ -1,14 +1,25 @@
-
-import express from 'express'
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => {
-    res.send('Server is ready')
-})
+import mongoose from "mongoose";
+import { DB_NAME } from "./src/constant";
 
 
 
-app.listen(port, () => {
-    console.log(`Serve at http://localhost:${port}`)
-})
+/*
+import express from "express";
+
+const app = express();
+(async () => {
+    try {
+        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
+        app.on("ERROR: ", (error) => {
+            console.error("ERROR: ", error);
+            throw error;
+        })
+        app.listen(process.env.PORT, () => {
+            console.log(`App is listening on port ${process.env.PORT}`);
+        })
+    } catch (error) {
+        console.error("ERROR: ", error);
+        throw error;
+    }
+})()
+*/
